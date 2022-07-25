@@ -1,0 +1,3 @@
+firmware-qlogic:
+  when:
+    - DISTRO_NAME = debian

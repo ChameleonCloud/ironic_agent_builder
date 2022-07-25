@@ -11,10 +11,12 @@ export DIB_REPOREF_ironic_lib=stable/xena
 export DIB_REPOREF_requirements=stable/xena
 
 #10s timeout for dhcp
-#export DIB_DHCP_TIMEOUT=10
+# export DIB_DHCP_TIMEOUT=10
+# disable module if networkmanager found
+export DIB_DHCP_NETWORK_MANAGER_AUTO=true
 
 #don't remove firmware
-export IPA_REMOVE_FIRMWARE=[]
+# export IPA_REMOVE_FIRMWARE=[]
 
 export ARCH=amd64
 export DIB_RELEASE=bullseye
@@ -29,5 +31,7 @@ disk-image-create \
 	-o "${IMAGE_NAME}" \
 	ironic-python-agent-ramdisk \
 	burn-in \
+	chi-extra-drivers \
+	extra-hardware \
 	dynamic-login \
 	debian-minimal
