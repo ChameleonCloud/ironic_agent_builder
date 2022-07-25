@@ -29,6 +29,8 @@ RUN .venv/bin/python3 -m pip install -r requirements.txt
 
 COPY build_image.sh .
 
+COPY dib dib
+
 VOLUME /root/.cache
 VOLUME /opt/output
 

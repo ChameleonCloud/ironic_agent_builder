@@ -3,7 +3,7 @@
 set -e -u -o pipefail
 
 # Set DIB elements path based on install location
-export ELEMENTS_PATH=.venv/share/ironic-python-agent-builder/dib
+export ELEMENTS_PATH=.venv/share/ironic-python-agent-builder/dib:/opt/ipa_build/dib
 
 # set references for stable/xena release, not master
 export DIB_REPOREF_ironic_python_agent=stable/xena
