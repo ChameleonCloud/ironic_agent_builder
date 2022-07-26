@@ -30,7 +30,7 @@ KERNEL_NAME="${IMAGE_NAME}.kernel"
 source .venv/bin/activate
 
 disk-image-create \
-	-o "${IMAGE_NAME}" \
+	-o "output/${IMAGE_NAME}" \
 	ironic-python-agent-ramdisk \
 	burn-in \
 	chi-extra-drivers \
