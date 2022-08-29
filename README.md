@@ -1,21 +1,20 @@
-Run these commands:
+# Ironic Agent Builder
 
+This directory contains the scripts used to generate the Chameleon IPA images.
 
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-./build_image.sh
+## Requirements
 
+Install with `install-reqs.sh`. It installs
 
-Then, upload the two images to glance.
+* [disk-image-builder](http://docs.openstack.org/developer/diskimage-builder)
 
+## Usage
+
+The main script takes an output variant as a single input parameter:
 ```
-openstack image create \
-	--container-format aki --disk-format aki \
- 	--public --project openstack --progress \
- 	--file "./${INITRAMFS_NAME}" "${INITRAMFS_NAME}"
-
-openstack image create \
-	--container-format aki --disk-format aki \
-	--public --project openstack --progress \
-	--file "./${KERNEL_NAME}" "${KERNEL_NAME}"
+python create-image.py [--release <release>] [--variant <variant>] [--ironic <ironic release>]
 ```
+
+* release: Debian release; default value `bullseye`
+* variant: Image variant; default value `amd64`
+* ironic: Ironic release; default value `stable/xena`
