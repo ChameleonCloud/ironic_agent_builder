@@ -13,6 +13,10 @@ VARIANTS = {
         'name-suffix': '-AMD64',
         'extra-elements': '',
     },
+    'arm64': {
+        'name-suffix': '-ARM64',
+        'extra-elements': '',
+    },
 }
 
 
