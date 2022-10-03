@@ -1,0 +1,24 @@
+FROM quay.io/centos/centos:stream8
+
+RUN dnf install -y \
+    python3 \
+    python3-pip \
+    git \
+    qemu-img \
+    sudo \
+    procps-ng \
+    cpio \
+    gcc
+
+WORKDIR /opt/ipa_build
+COPY requirements.txt .
+
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
+
+COPY create-image.sh .
+COPY dib dib
+COPY ironic-python-agent-builder ironic-python-agent-builder
+
+VOLUME /root/.cache
+CMD ./create-image.sh
